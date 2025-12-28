@@ -1,0 +1,2 @@
+This repository intentionally omits the binary portrait asset required at runtime.
+Place the real portrait image at /public/brand/portrait.jpg before building or deploying.
