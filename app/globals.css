@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(circle at 25% 20%, rgba(56, 189, 248, 0.08), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(124, 58, 237, 0.07), transparent 22%),
+    radial-gradient(circle at 60% 80%, rgba(56, 189, 248, 0.06), transparent 20%),
+    #0b1021;
+  color: #e8edff;
+  min-height: 100vh;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background-color: rgba(56, 189, 248, 0.25);
+}
+
+.terminal-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(56, 189, 248, 0.25);
+}
+
+.card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-sheen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(56, 189, 248, 0.12), transparent 30%);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.prose-dark p {
+  @apply text-muted;
+}
+
+.prose-dark h2,
+.prose-dark h3 {
+  @apply text-white;
+}
