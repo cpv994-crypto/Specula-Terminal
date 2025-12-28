@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 80" role="img" aria-labelledby="title desc">
+  <title id="title">Specula Wordmark</title>
+  <desc id="desc">Simple placeholder wordmark for Specula branding.</desc>
+  <rect width="420" height="80" rx="12" ry="12" fill="#0f172a" />
+  <text x="50%" y="55%" font-family="'Fira Code', 'Segoe UI', sans-serif" font-size="36" fill="#e5e7eb" text-anchor="middle" dominant-baseline="middle">Specula</text>
+</svg>
