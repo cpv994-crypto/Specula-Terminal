@@ -1,8 +1,7 @@
 # Specula Terminal
 
-A Next.js 14 (App Router) + Tailwind CSS + TypeScript experience that renders a terminal-inspired site for Specula. The
-application is fully routable with pages for the story, recent deployments, and contact signals—all driven by text-only assets
-so PRs stay lightweight.
+An institutional observation terminal built with Next.js 14 (App Router), Tailwind CSS, and TypeScript. The interface trades
+marketing gloss for a calm, glassy workspace inspired by Palantir Gotham and Reuters Eikon.
 
 ## Project structure
 
@@ -31,9 +30,15 @@ npm run lint
 
 Place brand assets under `public/brand` before building or deploying:
 
-- **Portrait**: Add your production portrait at `/public/brand/portrait.jpg`. The Contact page attempts to load this file; when
-  it is missing, the UI renders a styled placeholder panel that reads: `Portrait asset missing: /public/brand/portrait.jpg`.
-- **Mark**: Replace `public/brand/specula-mark.svg` with the official Specula mark (SVG only).
-- **Wordmark**: Replace `public/brand/specula-wordmark.svg` with the official Specula wordmark (SVG only).
+- **Mark**: `public/brand/specula-mark.svg` (SVG only).
+- **Wordmark**: `public/brand/specula-wordmark.svg` (SVG only).
+- **Portrait**: Optional `public/brand/portrait.jpg`. When absent, the Contact view renders a glass placeholder and reminders on
+  how to supply the portrait locally.
 
 A placeholder note lives at `public/brand/portrait-placeholder.txt` to keep the repository binary-free.
+
+## Adding images
+
+The repository must remain binary-free. To use a portrait later, place a JPEG at `/public/brand/portrait.jpg` in your local
+environment; it is intentionally gitignored. All other brand assets must stay as text-only SVGs under `/public/brand`. Avoid
+adding PNG/JPG/WebP/ICO files elsewhere in the repo.

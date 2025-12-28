@@ -1,92 +1,141 @@
 import Link from 'next/link';
-import { Logo } from '../../components/branding/Logo';
-import { PromptLine } from '../../components/terminal/PromptLine';
-import { TerminalPanel } from '../../components/terminal/TerminalPanel';
+import { GlassPanel } from '../../components/ui/GlassPanel';
+import { Tag } from '../../components/ui/Tag';
+import { Metric } from '../../components/ui/Metric';
 
-const capabilities = [
-  'Full-stack TypeScript and React delivery.',
-  'Product storytelling that keeps teams aligned.',
-  'Developer experience, tooling, and platform care.',
-  'Design systems that feel like craft, not config.'
+const researchItems = [
+  { title: 'Funding Stress Scans', meta: 'Liquidity | Draft', description: 'Mapping roll-over risk and counterparty drift across prime brokers.' },
+  { title: 'Energy System Rebuild', meta: 'Transition | Monitoring', description: 'Grid resilience, demand shaping, and long-duration storage narratives.' },
+  { title: 'Capital Markets Plumbing', meta: 'Microstructure | Note', description: 'Clearing, collateral chains, and the quiet infrastructure of risk.' }
 ];
 
-const signals = [
-  { label: 'Latency Budget', value: '~45ms TTFB across primary endpoints.' },
-  { label: 'Operational Posture', value: 'SLOs at 99.9%; progressive delivery toggles live.' },
-  { label: 'Discovery', value: 'Narratives and notes captured weekly in living ADRs.' },
-  { label: 'Community', value: 'Mentorship hours open each Friday for builders.' }
-];
-
-const routes = [
-  { href: '/about', label: 'Read the story', description: 'Origin, principles, and the working model.' },
-  { href: '/projects', label: 'Scan deployments', description: 'A curated set of shipped work and prototypes.' },
-  { href: '/contact', label: 'Book a signal', description: 'Schedule a call or request a readiness audit.' }
+const essayItems = [
+  { title: 'Observation over Hype', meta: 'Essay | 8 min', description: 'Calm analysis as the only hedge against exponential storytelling.' },
+  { title: 'Fragility Index', meta: 'Memo | 6 min', description: 'Thinking in failure modes when incentives drift and models lag reality.' },
+  { title: 'Designing for Dignity', meta: 'Essay | 10 min', description: 'Institutions that treat humans as ends, while scaling through technology.' }
 ];
 
 export default function HomePage() {
   return (
-    <div className="space-y-10">
-      <TerminalPanel
-        title="Specula Terminal"
-        subtitle="Tactical storytelling for people shipping resilient software."
-        accent="Live"
-        actions={<Logo showWordmark={false} />}
-      >
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <div className="space-y-6">
-            <PromptLine label="/usr/specula" command="npm run focus" />
-            <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
-              Strategy, narrative, and interfaces for teams that want their tools to feel like magic.
-            </h1>
-            <p className="max-w-2xl text-lg text-muted">
-              Specula blends product sense, engineering discipline, and interface craft. The terminal is an always-on status board
-              that keeps stakeholders aligned while new capabilities ship.
-            </p>
+    <div className="space-y-8">
+      <GlassPanel className="border border-[color:var(--border-strong)] shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 text-sm text-[color:var(--text-muted)]">
+              <span className="mono text-[color:var(--accent)]">specula@terminal</span>
+              <span className="mono text-[color:var(--text-dim)]">~$</span>
+              <span className="mono text-[color:var(--text)]">observation --initiate</span>
+              <span className="inline-block h-4 w-[2px] animate-cursor-blink bg-[color:var(--accent)]" />
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm uppercase tracking-[0.25em] text-[color:var(--text-dim)]">Specula — Future Observation Terminal</p>
+              <h1 className="text-3xl font-semibold leading-tight text-[color:var(--text)] sm:text-4xl">
+                look at the right direction
+              </h1>
+              <p className="max-w-3xl text-lg text-[color:var(--text-muted)]">
+                Investment + socio-economic research + philosophy + art. Designed to reduce uncertainty and anticipate the
+                civilizational transition.
+              </p>
+            </div>
             <div className="flex flex-wrap gap-3">
-              {capabilities.map((capability) => (
-                <span
-                  key={capability}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-muted shadow-sm"
-                >
-                  {capability}
-                </span>
-              ))}
+              <Link
+                href="/model-portfolio"
+                className="rounded-xl border border-[color:var(--border-mid)] bg-[rgba(92,200,255,0.12)] px-4 py-2 text-sm font-semibold text-[color:var(--text)] shadow-glow transition hover:-translate-y-0.5 hover:border-[color:var(--border-strong)]"
+              >
+                Enter Terminal
+              </Link>
+              <Link
+                href="/framework"
+                className="rounded-xl border border-[color:var(--border-weak)] bg-[rgba(255,255,255,0.03)] px-4 py-2 text-sm font-semibold text-[color:var(--text)] transition hover:-translate-y-0.5 hover:border-[color:var(--border-strong)]"
+              >
+                Read the Framework
+              </Link>
             </div>
           </div>
-          <div className="space-y-4 rounded-xl border border-white/10 bg-white/5 p-4 shadow-glow">
-            <div className="flex items-center justify-between text-sm text-muted">
-              <span>Telemetry feed</span>
-              <span className="rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">Clean</span>
+          <div className="grid w-full max-w-md gap-3 rounded-xl border border-[color:var(--border-weak)] bg-[rgba(255,255,255,0.02)] p-4 text-sm text-[color:var(--text-muted)] lg:w-auto">
+            <div className="flex items-center justify-between rounded-lg border border-[color:var(--border-weak)]/60 bg-[rgba(255,255,255,0.02)] px-3 py-3">
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-[color:var(--text-dim)]">Operating Mode</p>
+                <p className="text-sm font-semibold text-[color:var(--text)]">Observation</p>
+              </div>
+              <Tag tone="accent">Live</Tag>
             </div>
-            <div className="divide-y divide-white/5 rounded-lg border border-white/10 bg-terminal/70">
-              {signals.map((signal) => (
-                <div key={signal.label} className="flex items-center justify-between gap-3 px-4 py-3">
-                  <p className="text-sm font-semibold text-white">{signal.label}</p>
-                  <p className="text-sm text-muted">{signal.value}</p>
-                </div>
-              ))}
-            </div>
+            <Metric label="Noise filter" value="High discipline" hint="Narratives slowed for clarity." />
+            <Metric label="Risk posture" value="Calm / Positioned" hint="Holding optionality; awaiting liquidity shift." />
+            <Metric label="Latency" value="Sub-100ms" hint="Interface tuned for signal not spectacle." />
           </div>
         </div>
-      </TerminalPanel>
+      </GlassPanel>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {routes.map((route) => (
-          <Link
-            key={route.href}
-            href={route.href}
-            className="group relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-md transition hover:-translate-y-1 hover:border-accent hover:shadow-glow"
-          >
-            <div className="flex items-center justify-between text-muted">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em]">{route.label}</span>
-              <span className="text-accent-strong transition group-hover:translate-x-1">→</span>
+      <div className="grid gap-4 lg:grid-cols-3">
+        <GlassPanel title="Model Portfolio" subtitle="Allocation view" corner={<Tag tone="muted">Mock</Tag>}>
+          <div className="flex items-center gap-4">
+            <div className="relative h-32 w-32 rounded-full bg-[conic-gradient(from_90deg_at_50%_50%,rgba(92,200,255,0.35)_0deg,rgba(92,200,255,0.35)_120deg,rgba(255,255,255,0.08)_120deg,rgba(255,255,255,0.08)_210deg,rgba(255,255,255,0.02)_210deg,rgba(255,255,255,0.02)_360deg)]">
+              <div className="absolute inset-5 rounded-full border border-[color:var(--border-weak)] bg-[rgba(7,12,20,0.85)]" />
             </div>
-            <p className="text-lg font-semibold text-white">{route.description}</p>
-            <p className="text-sm text-muted">
-              Navigate with confidence—each section is fully wired with its own briefing and up-to-date telemetry.
-            </p>
-          </Link>
-        ))}
+            <div className="space-y-2 text-sm text-[color:var(--text-muted)]">
+              <p>Equities / Rate hedges / Optionality sleeves.</p>
+              <p className="text-[color:var(--text-dim)]">Ring is illustrative; live data forthcoming.</p>
+            </div>
+          </div>
+        </GlassPanel>
+        <GlassPanel title="Signals" subtitle="Watchlist" corner={<Tag tone="muted">Ingest</Tag>}>
+          <div className="space-y-3 text-sm text-[color:var(--text-muted)]">
+            <div className="flex items-center justify-between rounded-lg border border-[color:var(--border-weak)]/70 bg-[rgba(255,255,255,0.02)] px-3 py-2">
+              <span>Funding spreads</span>
+              <span className="text-[color:var(--text-dim)]">Filter: 3m roll</span>
+            </div>
+            <div className="flex items-center justify-between rounded-lg border border-[color:var(--border-weak)]/70 bg-[rgba(255,255,255,0.02)] px-3 py-2">
+              <span>Vol surfaces</span>
+              <span className="text-[color:var(--text-dim)]">Filter: FX + Rates</span>
+            </div>
+            <div className="flex items-center justify-between rounded-lg border border-[color:var(--border-weak)]/70 bg-[rgba(255,255,255,0.02)] px-3 py-2">
+              <span>Microstructure drift</span>
+              <span className="text-[color:var(--text-dim)]">Filter: Order book</span>
+            </div>
+          </div>
+        </GlassPanel>
+        <GlassPanel title="Horizons" subtitle="Future timeline" corner={<Tag tone="muted">2030 → 2055</Tag>}>
+          <div className="space-y-2 text-sm text-[color:var(--text-muted)]">
+            <p>Waypoints across the transition.</p>
+            <ul className="space-y-2 text-[color:var(--text-dim)]">
+              <li>2030 — AI agency + energy strain.</li>
+              <li>2035 — Compute regulation + biosecurity norms.</li>
+              <li>2045 — Orbital industry + synthetic biology scaling.</li>
+            </ul>
+          </div>
+        </GlassPanel>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-2">
+        <GlassPanel title="Latest Financial Research" subtitle="Three most recent briefings" corner={<Tag tone="accent">Research</Tag>}>
+          <div className="space-y-3">
+            {researchItems.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-[color:var(--border-weak)] bg-[rgba(255,255,255,0.02)] p-4 transition hover:border-[color:var(--border-strong)]"
+              >
+                <p className="text-sm uppercase tracking-[0.18em] text-[color:var(--text-dim)]">{item.meta}</p>
+                <h3 className="text-lg font-semibold text-[color:var(--text)]">{item.title}</h3>
+                <p className="text-sm text-[color:var(--text-muted)]">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </GlassPanel>
+        <GlassPanel title="Latest Essays" subtitle="Narratives + analysis" corner={<Tag tone="accent">Socio-Economic</Tag>}>
+          <div className="space-y-3">
+            {essayItems.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-[color:var(--border-weak)] bg-[rgba(255,255,255,0.02)] p-4 transition hover:border-[color:var(--border-strong)]"
+              >
+                <p className="text-sm uppercase tracking-[0.18em] text-[color:var(--text-dim)]">{item.meta}</p>
+                <h3 className="text-lg font-semibold text-[color:var(--text)]">{item.title}</h3>
+                <p className="text-sm text-[color:var(--text-muted)]">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </GlassPanel>
       </div>
     </div>
   );
